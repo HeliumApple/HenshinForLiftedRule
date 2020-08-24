@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<flyweightjava:Package
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:flyweightjava="http://flyweightjava"
+    xsi:schemaLocation="http://flyweightjava Java.ecore"
+    name="p">
+  <classes name="c">
+    <methods
+        name="m1"/>
+    <methods
+        name="m2"/>
+    <methods
+        name="m3"/>
+    <methods
+        name="m4"/>
+    <methods
+        name="m5"/>
+    <methods
+        name="m6"/>
+    <methods
+        name="m7"/>
+    <methods
+        name="m8"/>
+    <methods
+        name="m9"/>
+    <methods
+        name="m10"/>
+    <methods
+        name="m11"/>
+    <fields
+        name="f2"/>
+  </classes>
+</flyweightjava:Package>
