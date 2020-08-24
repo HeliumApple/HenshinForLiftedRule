@@ -1,0 +1,5 @@
+var,A;B;C
+featureModel,(A | B | rocketdyne)
+rocket,(A)
+kerbal,(A & B)
+rocketdyne,(A & C)

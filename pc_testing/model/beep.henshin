@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_E_3y0OYwEeqCT-TZ0K9d_Q">
+  <imports href="My.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_FlPwwOYwEeqCT-TZ0K9d_Q" name="This">
+    <lhs xmi:id="_FlTbIOYwEeqCT-TZ0K9d_Q" name="Lhs"/>
+    <rhs xmi:id="_FlTbIeYwEeqCT-TZ0K9d_Q" name="Rhs"/>
+  </units>
+</henshin:Module>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_E_5oAOYwEeqCT-TZ0K9d_Q" type="Henshin" name="beep.henshin_diagram" measurementUnit="Pixel">
+  <children xmi:type="notation:Shape" xmi:id="_FlRl8OYwEeqCT-TZ0K9d_Q" type="2001" fontName="Segoe UI" italic="true" lineColor="0">
+    <children xmi:type="notation:DecorationNode" xmi:id="_FlRl8uYwEeqCT-TZ0K9d_Q" type="5001"/>
+    <children xmi:type="notation:DecorationNode" xmi:id="_FlRl8-YwEeqCT-TZ0K9d_Q" type="7001"/>
+    <element xmi:type="henshin:Rule" href="beep.henshin#_FlPwwOYwEeqCT-TZ0K9d_Q"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_FlRl8eYwEeqCT-TZ0K9d_Q" x="279" y="198"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_E_5oAeYwEeqCT-TZ0K9d_Q"/>
+  <element xmi:type="henshin:Module" href="beep.henshin#_E_3y0OYwEeqCT-TZ0K9d_Q"/>
+</notation:Diagram>

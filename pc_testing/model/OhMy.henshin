@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xuF9kNwSEeqcPqeC5CjZeQ">
+  <imports href="My.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_bXLEAN81Eeqbo63Xy6Ks_g" name="addbob">
+    <lhs xmi:id="_bXPVcN81Eeqbo63Xy6Ks_g" name="Lhs">
+      <nodes xmi:id="_c7CDcN81Eeqbo63Xy6Ks_g">
+        <type href="My.ecore#//rocket"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_bXPVcd81Eeqbo63Xy6Ks_g" name="Rhs">
+      <nodes xmi:id="_c7CDcd81Eeqbo63Xy6Ks_g" outgoing="_Gq9XwN_yEeqhdZ27bbBDsg _ON7awOIzEeq7teQi0i9gLg _ZLOnAOVuEeqCZL_MtA24pw">
+        <type href="My.ecore#//rocket"/>
+      </nodes>
+      <nodes xmi:id="_GARcAN_yEeqhdZ27bbBDsg" description="" incoming="_Gq9XwN_yEeqhdZ27bbBDsg">
+        <type href="My.ecore#//kerbal"/>
+      </nodes>
+      <nodes xmi:id="_M6nYwOIzEeq7teQi0i9gLg" incoming="_ON7awOIzEeq7teQi0i9gLg">
+        <type href="My.ecore#//rocketdyne"/>
+      </nodes>
+      <nodes xmi:id="_YpTlsOVuEeqCZL_MtA24pw" incoming="_ZLOnAOVuEeqCZL_MtA24pw">
+        <type href="My.ecore#//rocket"/>
+      </nodes>
+      <edges xmi:id="_Gq9XwN_yEeqhdZ27bbBDsg" source="_c7CDcd81Eeqbo63Xy6Ks_g" target="_GARcAN_yEeqhdZ27bbBDsg">
+        <type href="My.ecore#//rocket/kerbal"/>
+      </edges>
+      <edges xmi:id="_ON7awOIzEeq7teQi0i9gLg" source="_c7CDcd81Eeqbo63Xy6Ks_g" target="_M6nYwOIzEeq7teQi0i9gLg">
+        <type href="My.ecore#//rocket/rocketdyne"/>
+      </edges>
+      <edges xmi:id="_ZLOnAOVuEeqCZL_MtA24pw" source="_c7CDcd81Eeqbo63Xy6Ks_g" target="_YpTlsOVuEeqCZL_MtA24pw">
+        <type href="My.ecore#//rocket/rocket"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_c7CDct81Eeqbo63Xy6Ks_g" origin="_c7CDcN81Eeqbo63Xy6Ks_g" image="_c7CDcd81Eeqbo63Xy6Ks_g"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_y8CCMN9FEeqbo63Xy6Ks_g" name="deletebill">
+    <lhs xmi:id="_y8FskN9FEeqbo63Xy6Ks_g" name="Lhs">
+      <nodes xmi:id="_07_u0N9FEeqbo63Xy6Ks_g" outgoing="_7Y3EkN9FEeqbo63Xy6Ks_g">
+        <type href="My.ecore#//rocket"/>
+      </nodes>
+      <nodes xmi:id="_6_OckN9FEeqbo63Xy6Ks_g" incoming="_7Y3EkN9FEeqbo63Xy6Ks_g">
+        <type href="My.ecore#//kerbal"/>
+      </nodes>
+      <edges xmi:id="_7Y3EkN9FEeqbo63Xy6Ks_g" source="_07_u0N9FEeqbo63Xy6Ks_g" target="_6_OckN9FEeqbo63Xy6Ks_g">
+        <type href="My.ecore#//rocket/kerbal"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_y8Fskd9FEeqbo63Xy6Ks_g" name="Rhs">
+      <nodes xmi:id="_07_u0d9FEeqbo63Xy6Ks_g" outgoing="_4cQbAOIuEeqYmOgNqmi3WA">
+        <type href="My.ecore#//rocket"/>
+      </nodes>
+      <nodes xmi:id="_qLMwMOIuEeqYmOgNqmi3WA" incoming="_4cQbAOIuEeqYmOgNqmi3WA">
+        <type href="My.ecore#//rocketdyne"/>
+      </nodes>
+      <edges xmi:id="_4cQbAOIuEeqYmOgNqmi3WA" source="_07_u0d9FEeqbo63Xy6Ks_g" target="_qLMwMOIuEeqYmOgNqmi3WA">
+        <type href="My.ecore#//rocket/rocketdyne"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_07_u0t9FEeqbo63Xy6Ks_g" origin="_07_u0N9FEeqbo63Xy6Ks_g" image="_07_u0d9FEeqbo63Xy6Ks_g"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_HZpxIN_vEeqhdZ27bbBDsg" name="jebediah">
+    <lhs xmi:id="_HZsNYN_vEeqhdZ27bbBDsg" name="Lhs">
+      <nodes xmi:id="_M9HZsN_vEeqhdZ27bbBDsg" outgoing="_OrJBwN_vEeqhdZ27bbBDsg">
+        <type href="My.ecore#//rocket"/>
+      </nodes>
+      <nodes xmi:id="_NZaUIN_vEeqhdZ27bbBDsg" name="" description="" incoming="_OrJBwN_vEeqhdZ27bbBDsg">
+        <type href="My.ecore#//kerbal"/>
+      </nodes>
+      <edges xmi:id="_OrJBwN_vEeqhdZ27bbBDsg" source="_M9HZsN_vEeqhdZ27bbBDsg" target="_NZaUIN_vEeqhdZ27bbBDsg" index="">
+        <type href="My.ecore#//rocket/kerbal"/>
+      </edges>
+    </lhs>
+    <rhs xmi:id="_HZsNYd_vEeqhdZ27bbBDsg" name="Rhs">
+      <nodes xmi:id="_M9In0N_vEeqhdZ27bbBDsg" outgoing="_OrJBwd_vEeqhdZ27bbBDsg">
+        <type href="My.ecore#//rocket"/>
+      </nodes>
+      <nodes xmi:id="_NZaUId_vEeqhdZ27bbBDsg" incoming="_OrJBwd_vEeqhdZ27bbBDsg">
+        <type href="My.ecore#//kerbal"/>
+      </nodes>
+      <edges xmi:id="_OrJBwd_vEeqhdZ27bbBDsg" source="_M9In0N_vEeqhdZ27bbBDsg" target="_NZaUId_vEeqhdZ27bbBDsg">
+        <type href="My.ecore#//rocket/kerbal"/>
+      </edges>
+    </rhs>
+    <mappings xmi:id="_M9In0d_vEeqhdZ27bbBDsg" origin="_M9HZsN_vEeqhdZ27bbBDsg" image="_M9In0N_vEeqhdZ27bbBDsg"/>
+    <mappings xmi:id="_NZaUIt_vEeqhdZ27bbBDsg" origin="_NZaUIN_vEeqhdZ27bbBDsg" image="_NZaUId_vEeqhdZ27bbBDsg"/>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_SUe48OYvEeqCT-TZ0K9d_Q" name="something" description="this">
+    <lhs xmi:id="_SUuwkOYvEeqCT-TZ0K9d_Q" name="Lhs">
+      <nodes xmi:id="_Ts9HwOYvEeqCT-TZ0K9d_Q">
+        <type href="My.ecore#//kerbal"/>
+      </nodes>
+    </lhs>
+    <rhs xmi:id="_SUuwkeYvEeqCT-TZ0K9d_Q" name="Rhs">
+      <nodes xmi:id="_Ts9HweYvEeqCT-TZ0K9d_Q">
+        <type href="My.ecore#//kerbal"/>
+      </nodes>
+    </rhs>
+    <mappings xmi:id="_Ts9u0OYvEeqCT-TZ0K9d_Q" origin="_Ts9HwOYvEeqCT-TZ0K9d_Q" image="_Ts9HweYvEeqCT-TZ0K9d_Q"/>
+  </units>
+</henshin:Module>

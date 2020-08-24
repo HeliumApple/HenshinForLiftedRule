@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="game" nsURI="game" nsPrefix="game">
+  <eClassifiers xsi:type="ecore:EClass" name="rocket" eSuperTypes="#//name">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="kerbal" upperBound="-1"
+        eType="#//kerbal" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rocketdyne" upperBound="-1"
+        eType="#//rocketdyne" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rocket" upperBound="-1"
+        eType="#//rocket" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="kerbal" eSuperTypes="#//name"/>
+  <eClassifiers xsi:type="ecore:EClass" name="name" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        iD="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpaceModel">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//name" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="rocketdyne"/>
+</ecore:EPackage>
