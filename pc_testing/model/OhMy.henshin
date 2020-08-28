@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_xuF9kNwSEeqcPqeC5CjZeQ">
   <imports href="My.ecore#/"/>
-  <units xsi:type="henshin:Rule" xmi:id="_bXLEAN81Eeqbo63Xy6Ks_g" name="addbob">
+  <units xsi:type="henshin:Rule" xmi:id="_bXLEAN81Eeqbo63Xy6Ks_g" name="addbob" liftedRule="false">
     <lhs xmi:id="_bXPVcN81Eeqbo63Xy6Ks_g" name="Lhs">
       <nodes xmi:id="_c7CDcN81Eeqbo63Xy6Ks_g">
         <type href="My.ecore#//rocket"/>

@@ -114,7 +114,7 @@ import org.logicng.solvers.SATSolver;
 public class EngineImpl implements Engine {
 
 	// condition can be satisfied
-	private static final String Satisfiable = "TRUE";
+	protected static final String Satisfiable = "TRUE";
 
 	// action is null
 	/*
@@ -1043,11 +1043,8 @@ public class EngineImpl implements Engine {
 																	// done here
 																	// automatically
 			}
-			// change presence condition
-			// value = changePresenceCondition(Phi_Apply, attribute);
 			changes.add(new AttributeChangeImpl(graph, object, attribute.getType(), value));
 			// add the attribute change FROM PARAMETERS
-			// change this to PC?
 		}
 	}
 
