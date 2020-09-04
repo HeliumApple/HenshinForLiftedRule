@@ -1,7 +1,9 @@
 package org.eclipse.emf.henshin.interpreter.lifted.impl;
+/*package org.eclipse.emf.henshin.interpreter.impl;
 //TODO: fully integrating this class in Henshin
-/*import org.eclipse.emf.henshin.interpreter.EGraph;
+import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.Engine;
+import org.eclipse.emf.henshin.interpreter.LiftedEngine;
 import org.eclipse.emf.henshin.interpreter.Match;
 import org.eclipse.emf.henshin.interpreter.PartitionedEGraph;
 
@@ -42,25 +44,22 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.henshin.interpreter.Change;
 import org.eclipse.emf.henshin.interpreter.Change.CompoundChange;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl;
-import org.eclipse.emf.henshin.interpreter.impl.MatchImpl;
 import org.eclipse.emf.henshin.interpreter.impl.ChangeImpl.AttributeChangeImpl;
 import org.eclipse.emf.henshin.interpreter.impl.ChangeImpl.CompoundChangeImpl;
 import org.eclipse.emf.henshin.interpreter.impl.ChangeImpl.IndexChangeImpl;
 import org.eclipse.emf.henshin.interpreter.impl.ChangeImpl.ObjectChangeImpl;
 import org.eclipse.emf.henshin.interpreter.impl.ChangeImpl.ReferenceChangeImpl;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.EngineOptions;
+//import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.EngineOptions;
 import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.MatchFinder;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.MatchFinderWorker;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.MatchGenerator;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.MatchingOptions;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.RuleChangeListener;
-import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.VariableComparator;
+//import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.MatchFinderWorker;
+//import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.MatchGenerator;
+//import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.MatchingOptions;
+//import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.RuleChangeListener;
+//import org.eclipse.emf.henshin.interpreter.impl.EngineImpl.VariableComparator;
 import org.eclipse.emf.henshin.interpreter.info.ConditionInfo;
 import org.eclipse.emf.henshin.interpreter.info.RuleChangeInfo;
 import org.eclipse.emf.henshin.interpreter.info.RuleInfo;
 import org.eclipse.emf.henshin.interpreter.info.VariableInfo;
-import org.eclipse.emf.henshin.interpreter.lifted.LiftedEngine;
 import org.eclipse.emf.henshin.interpreter.matching.conditions.AndFormula;
 import org.eclipse.emf.henshin.interpreter.matching.conditions.ApplicationCondition;
 import org.eclipse.emf.henshin.interpreter.matching.conditions.ConditionHandler;
@@ -98,7 +97,7 @@ import org.logicng.io.parsers.ParserException;
 import org.logicng.io.parsers.PropositionalParser;
 import org.logicng.solvers.MiniSat;
 import org.logicng.solvers.SATSolver;
-*/
+
 
 /*public class LiftedEngineImpl extends EngineImpl implements LiftedEngine {
 
@@ -114,8 +113,8 @@ import org.logicng.solvers.SATSolver;
 	 */
 
 	// link for presence conditions conjunction
-/*
-	private static final String Presence_Conjunction = " & ";
+
+/*	private static final String Presence_Conjunction = " & ";
 	private static final String Presence_Negation = " ~ ";
 
 	// name of the presence condition attribute
@@ -142,62 +141,62 @@ import org.logicng.solvers.SATSolver;
 	/**
 	 * Default value for option {@link Engine#OPTION_SORT_VARIABLES}.
 	 */
-	/*private static final boolean DEFAULT_SORT_VARIABLES = true;
+/*	private static final boolean DEFAULT_SORT_VARIABLES = true;
 
 	/**
 	 * Default value for option {@link Engine#OPTION_INVERSE_MATCHING_ORDER}.
 	 */
-	/*private static final boolean DEFAULT_INVERSE_MATCHING_ORDER = true;
+/*	private static final boolean DEFAULT_INVERSE_MATCHING_ORDER = true;
 
 	/**
 	 * Default value for option {@link Engine#OPTION_DESTROY_MATCHES}.
 	 */
-	/*private static final boolean DEFAULT_DESTROY_MATCHES = false;
+/*	private static final boolean DEFAULT_DESTROY_MATCHES = false;
 
 	/**
 	 * Options to be used.
 	 */
-	/*protected final Map<String, Object> options;
+/*	protected final Map<String, Object> options;
 
 	/**
 	 * Script engine used to compute Java expressions in attributes.
 	 */
-	/*protected final ScriptEngineWrapper scriptEngine;
+/*	protected final ScriptEngineWrapper scriptEngine;
 
 	/**
 	 * Cached information lookup map for each rule.
 	 */
-	/*protected final Map<Rule, RuleInfo> ruleInfos;
+/*	protected final Map<Rule, RuleInfo> ruleInfos;
 
 	/**
 	 * Cached graph options.
 	 */
-	/*protected final Map<Graph, MatchingOptions> graphOptions;
+/*	protected final Map<Graph, MatchingOptions> graphOptions;
 
 	/**
 	 * Listen for rule changes.
 	 */
-	/*protected final EContentAdapter ruleListener;
+/*	protected final EContentAdapter ruleListener;
 
 	/**
 	 * Whether to sort variables.
 	 */
-	/*protected boolean sortVariables;
+/*	protected boolean sortVariables;
 
 	/**
 	 * Whether to use inverse matching order.
 	 */
-	/*protected boolean inverseMatchingOrder;
+/*	protected boolean inverseMatchingOrder;
 
 	/**
 	 * Whether destruction of matches is allowed.
 	 */
-	/*protected boolean destroyMatches;
+/*	protected boolean destroyMatches;
 
 	/**
 	 * Worker thread pool.
 	 */
-	/*protected ExecutorService workerPool;
+/*	protected ExecutorService workerPool;
 
 	/**
 	 * Constructor.
@@ -205,7 +204,7 @@ import org.logicng.solvers.SATSolver;
 	 * @param globalJavaImports List of global Java imports to be used in the script
 	 *                          engine.
 	 */
-	/*public LiftedEngineImpl(String... globalJavaImports) {
+/*	public LiftedEngineImpl(String... globalJavaImports) {
 
 		// Initialize fields:
 		ruleInfos = new HashMap<Rule, RuleInfo>();
@@ -228,7 +227,7 @@ import org.logicng.solvers.SATSolver;
 	 * drops all cached options for this rule. This enables dynamic high-order
 	 * transformation of rules.
 	 */
-	/*private final class RuleChangeListener extends EContentAdapter {
+/*	private final class RuleChangeListener extends EContentAdapter {
 
 		/*
 		 * (non-Javadoc)
@@ -236,7 +235,7 @@ import org.logicng.solvers.SATSolver;
 		 * @see org.eclipse.emf.ecore.util.EContentAdapter#notifyChanged(org.eclipse
 		 * .emf.common.notify.Notification)
 		 */
-	/*	@Override
+/*		@Override
 		public void notifyChanged(Notification notification) {
 			super.notifyChanged(notification);
 			int eventType = notification.getEventType();
@@ -266,7 +265,7 @@ import org.logicng.solvers.SATSolver;
 	 * .henshin.model.Rule, org.eclipse.emf.henshin.interpreter.EGraph,
 	 * org.eclipse.emf.henshin.interpreter.Match)
 	 */
-	/*@Override
+/*	@Override
 	public Iterable<Match> findMatches(Rule rule, EGraph graph, Match partialMatch) {
 		if (rule == null || graph == null) {
 			throw new NullPointerException("Rule and graph must not be null");
@@ -280,7 +279,7 @@ import org.logicng.solvers.SATSolver;
 	/**
 	 * Match generator class. Delegates to {@link MatchFinder}.
 	 */
-	/*final class MatchGenerator implements Iterable<Match> {
+/*	final class MatchGenerator implements Iterable<Match> {
 
 		/**
 		 * Rule to be matched.
@@ -290,7 +289,7 @@ import org.logicng.solvers.SATSolver;
 		/**
 		 * Object graph.
 		 */
-	/*	private final EGraph graph;
+/*		private final EGraph graph;
 
 		/**
 		 * A partial match.
@@ -304,7 +303,7 @@ import org.logicng.solvers.SATSolver;
 		 * @param graph        Object graph.
 		 * @param partialMatch Partial match.
 		 */
-	/*	public MatchGenerator(Rule rule, EGraph graph, Match partialMatch) {
+/*		public MatchGenerator(Rule rule, EGraph graph, Match partialMatch) {
 			this.rule = rule;
 			this.graph = graph;
 			this.partialMatch = partialMatch;
@@ -315,7 +314,7 @@ import org.logicng.solvers.SATSolver;
 		 * 
 		 * @see java.lang.Iterable#iterator()
 		 */
-	/*	@Override
+/*		@Override
 		public Iterator<Match> iterator() {
 			return new MatchFinder(rule, graph, partialMatch, new HashSet<EObject>());
 		}
@@ -941,6 +940,7 @@ import org.logicng.solvers.SATSolver;
 	 */
 /*	public void createChanges(Rule rule, EGraph graph, Match completeMatch, Match resultMatch,
 			CompoundChange complexChange) {
+		System.out.println("oh hello! Oh hello!");
 		// Get the rule change info and the object change list:
 		RuleChangeInfo ruleChange = getRuleInfo(rule).getChangeInfo();
 		List<Change> changes = complexChange.getChanges();
@@ -1405,12 +1405,12 @@ import org.logicng.solvers.SATSolver;
 		}
 
 	}
-
+*/
 	/**
 	 * Cached Ecore package.
 	 */
 /*	private static final EcorePackage ECORE = EcorePackage.eINSTANCE;
-
+*/
 	/**
 	 * Cast a data value into a given data type.
 	 * 
@@ -1474,7 +1474,7 @@ import org.logicng.solvers.SATSolver;
 		return EcoreUtil.createFromString(type, value.toString());
 
 	}
-
+*/
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -1484,15 +1484,15 @@ import org.logicng.solvers.SATSolver;
 	public Map<String, Object> getOptions() {
 		return options;
 	}
-
+*/
 	/**
 	 * Data class for storing matching options.
 	 */
-/*	static class MatchingOptions {
+	/*static class MatchingOptions {
 		boolean injective;
 		boolean dangling;
 		boolean deterministic;
-	}
+	}*/
 
 	/**
 	 * Get the options for a specific rule graph. The graph should be either the LHS
@@ -1501,7 +1501,7 @@ import org.logicng.solvers.SATSolver;
 	 * @param graph The graph.
 	 * @return The cached options.
 	 */
-/*	protected MatchingOptions getGraphOptions(Graph graph) {
+	/*protected MatchingOptions getGraphOptions(Graph graph) {
 		MatchingOptions options = graphOptions.get(graph);
 		if (options == null) {
 
@@ -1525,7 +1525,7 @@ import org.logicng.solvers.SATSolver;
 			graphOptions.put(graph, options);
 		}
 		return options;
-	}
+	}*/
 
 	/**
 	 * An options map which clears cached rule options.
@@ -1591,19 +1591,19 @@ import org.logicng.solvers.SATSolver;
 /*		private void updateCachedOptions() {
 
 			// Update sort variables flag:
-			Boolean sort = (Boolean) get(OPTION_SORT_VARIABLES);
+			Boolean sort = (Boolean) get(LiftedEngine.OPTION_SORT_VARIABLES);
 			sortVariables = (sort != null) ? sort.booleanValue() : DEFAULT_SORT_VARIABLES;
 
 			// Update inverse matching order flag:
-			Boolean inverse = (Boolean) get(OPTION_INVERSE_MATCHING_ORDER);
+			Boolean inverse = (Boolean) get(LiftedEngine.OPTION_INVERSE_MATCHING_ORDER);
 			inverseMatchingOrder = (inverse != null) ? inverse.booleanValue() : DEFAULT_INVERSE_MATCHING_ORDER;
 
 			// Update destroy matches flag:
-			Boolean destroy = (Boolean) get(OPTION_DESTROY_MATCHES);
+			Boolean destroy = (Boolean) get(LiftedEngine.OPTION_DESTROY_MATCHES);
 			destroyMatches = (destroy != null) ? destroy.booleanValue() : DEFAULT_DESTROY_MATCHES;
 
 			// Update worker thread pool:
-			Number workerThreads = (Number) get(OPTION_WORKER_THREADS);
+			Number workerThreads = (Number) get(LiftedEngine.OPTION_WORKER_THREADS);
 			if (workerPool != null) {
 				workerPool.shutdownNow();
 				workerPool = null;
@@ -1620,24 +1620,24 @@ import org.logicng.solvers.SATSolver;
 	 * 
 	 * @see org.eclipse.emf.henshin.interpreter.Engine#getScriptEngine()
 	 */
-/*	@Override
-	public ScriptEngine getScriptEngine() {
+//	@Override
+/*	public ScriptEngine getScriptEngine() {
 		return scriptEngine.getEngine();
 	}
-
+*/
 	/*
 	 * (non-Javadoc)
 	 * 
 	 * @see org.eclipse.emf.henshin.interpreter.Engine#shutdown()
 	 */
-/*	@Override
-	public void shutdown() {
+//	@Override
+/*	public void shutdown() {
 		if (workerPool != null) {
 			workerPool.shutdownNow();
 			workerPool = null;
 		}
 	}
-
+*/
 	/**
 	 * Create user constraints for a node.
 	 * 
@@ -1647,7 +1647,7 @@ import org.logicng.solvers.SATSolver;
 /*	public UnaryConstraint createUserConstraints(Node node) {
 		return null;
 	}
-
+*/
 	/**
 	 * Create user constraints for an edge.
 	 * 
@@ -1657,18 +1657,18 @@ import org.logicng.solvers.SATSolver;
 /*	public BinaryConstraint createUserConstraints(Edge edge) {
 		return null;
 	}
-
+*/
 	/**
 	 * Create user constraints for an attribute.
 	 * 
 	 * @param attribute An attribute.
 	 * @return The created user constraint.
 	 */
-/*	public UnaryConstraint createUserConstraints(Attribute attribute) {
+	/*public UnaryConstraint createUserConstraints(Attribute attribute) {
 		return null;
 	}
-
-}*/ 
+*/
+//}
 
 
 

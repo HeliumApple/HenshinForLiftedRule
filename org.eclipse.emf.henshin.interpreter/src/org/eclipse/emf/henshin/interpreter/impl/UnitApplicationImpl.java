@@ -45,11 +45,6 @@ import static org.eclipse.emf.henshin.interpreter.util.InterpreterUtil.areNecess
  */
 public class UnitApplicationImpl extends AbstractApplicationImpl {
 	
-	boolean isLifted=false;
-	
-	public boolean getLifted() {
-		return isLifted;
-	}
 	
 	// Parameter assignments:
 	protected Assignment assignment, resultAssignment;

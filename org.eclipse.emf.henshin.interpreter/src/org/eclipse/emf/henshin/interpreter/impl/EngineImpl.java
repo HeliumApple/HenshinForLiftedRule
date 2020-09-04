@@ -976,8 +976,7 @@ public class EngineImpl implements Engine {
 				// Created objects:
 				createObject(graph, resultMatch, ruleChange, changes, Phi_Apply, rule.isLiftedRule());
 				// Deleted objects:
-				deleteObjects(rule, graph, completeMatch, ruleChange, changes, Phi_Apply, Phi_Delete,
-						rule.isLiftedRule());
+				deleteObjects(rule, graph, completeMatch, ruleChange, changes, Phi_Apply, Phi_Delete);
 				// Preserved objects:
 				preserveObjects(rule, completeMatch, resultMatch, ruleChange);
 
@@ -992,7 +991,7 @@ public class EngineImpl implements Engine {
 
 				// Attribute changes:
 				// do some stuff here to change the presence condition
-				attributeChanges(rule, graph, resultMatch, ruleChange, changes, Phi_Apply);
+				attributeChanges(rule, graph, resultMatch, ruleChange, changes);
 
 				// Now recursively for the multi-rules:
 				multi_Rules_recursively(rule, graph, completeMatch, resultMatch, complexChange);
@@ -1029,7 +1028,7 @@ public class EngineImpl implements Engine {
 	}
 
 	private void attributeChanges(Rule rule, EGraph graph, Match resultMatch, RuleChangeInfo ruleChange,
-			List<Change> changes, String Phi_Apply) {
+			List<Change> changes) {
 		for (Attribute attribute : ruleChange.getAttributeChanges()) {
 			EObject object = resultMatch.getNodeTarget(attribute.getNode());
 			Object value;
@@ -1106,12 +1105,12 @@ public class EngineImpl implements Engine {
 
 	// deleted nodes
 	private void deleteObjects(Rule rule, EGraph graph, Match completeMatch, RuleChangeInfo ruleChange,
-			List<Change> changes, String P_Apply, String P_Delete, Boolean lift) {
+			List<Change> changes, String P_Apply, String P_Delete) {
 		for (Node node : ruleChange.getDeletedNodes()) {
 			// new presence condition
 			String New_Condition = Presence_Negation + P_Delete + Presence_Conjunction + P_Apply;
 			// If the rule is lifted and the node's presence condition isn't saved
-			if ((!New_PC.containsKey(node.getType().getName()) && (lift))) {
+			if ((!New_PC.containsKey(node.getType().getName()) && (rule.isLiftedRule()))) {
 				New_PC.put(node.getType().getName().toString(), New_Condition);
 			} else {
 				EObject deletedObject = completeMatch.getNodeTarget(node);
@@ -1260,7 +1259,7 @@ public class EngineImpl implements Engine {
 	 * 
 	 * @author Emmanuel Merlo
 	 */
-	private String getPresenceConditionOfNode(Node node, Map<String, String> PresenceCond) {
+	protected String getPresenceConditionOfNode(Node node, Map<String, String> PresenceCond) {
 		String PC = "";
 		if (PresenceCond.containsKey(node.getType().getName())) {
 			PC = PresenceCond.get(node.getType().getName()).toString();
@@ -1324,22 +1323,7 @@ public class EngineImpl implements Engine {
 	}
 
 	/**
-	 * indicate which file path contains the presence conditions and which file
-	 * should be used for the new conditions and then load the model's data
-	 * contained in the given file
-	 * 
-	 * @author Emmanuel Merlo
-	 *
-	 * 
-	 */
-	public void LoadAndWrite(String LoadPath, String ReturnPath) {
-		Original_Model_File = LoadPath;
-		New_Model_File = ReturnPath;
-		loadMetaModelData(LoadPath);
-	}
-
-	/**
-	 * Set SPL file path for lifted rule and then load the relevant informations
+	 * Set SPL file path for the lifted rule and then load the relevant informations
 	 * 
 	 */
 	public void loadInputSPLFileForLiftedRule(String LoadPath) {
@@ -1364,7 +1348,10 @@ public class EngineImpl implements Engine {
 	 */
 	private void exportOutputSPLToCSVFile() {
 		try {
+			File file = new  File(New_Model_File);
+		    file.createNewFile();
 			FileWriter writer = new FileWriter(New_Model_File);
+			//file.createNewFile();
 			// variables declarations
 			writer.write(VAR_DECL_KEYWORD + CSV_DELIMITER);
 			String features = "";
