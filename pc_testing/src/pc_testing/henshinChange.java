@@ -1,4 +1,6 @@
 package pc_testing;
+
+
 import org.eclipse.emf.henshin.interpreter.EGraph;
 import org.eclipse.emf.henshin.interpreter.Engine;
 import org.eclipse.emf.henshin.interpreter.UnitApplication;
@@ -34,14 +36,14 @@ public class henshinChange {
 				
 		// Create an engine and a rule application:
 		Engine engine = new EngineImpl();
-		engine.LoadAndWrite("model/spl_test.csv", "model/hope.csv");
+		engine.loadInputSPLFileForLiftedRule("model/spl_test.csv");
+		engine.setPathForCSVFileOfOutputSPL("model/output_file.csv");
 		UnitApplication jebediah = new UnitApplicationImpl(engine);
 		jebediah.setEGraph(graph);
 		jebediah.setEGraph(graph);
 		System.out.println("Jebediah shall not crash THIS rocket!!!");
 		jebediah.setUnit(module.getUnit("jebediah"));
-		//jebediah.setParameterValue("Hope", "(A & B)");
-		//jebediah.execute(null);
+
 		System.out.println();
 		
 		UnitApplication Bob = new UnitApplicationImpl(engine);
@@ -49,14 +51,7 @@ public class henshinChange {
 		Bob.setEGraph(graph);
 		System.out.println("Bob shall not crash THIS rocket!!!");
 		Bob.setUnit(module.getUnit("addbob"));
-		
-		/*for (Rule r: module.getAllRules()) {
 			
-		}*/
-		
-		//module.getUnit("addbob").setLifted(true);
-		//jebediah.setParameterValue("halp", "stuff");
-		
 		
 		UnitApplication Bill = new UnitApplicationImpl(engine);
 		Bill.setEGraph(graph);
@@ -65,9 +60,6 @@ public class henshinChange {
 		System.out.println("\n\n");
 		
 		Bill.setUnit(module.getUnit("deletebill"));
-		//module.getUnit("deletebill").setLifted(false);
-		//module.getUnit("jebediah").setLifted(false);
-		//module.getUnit("addbob").setLifted(true);
 		
 		System.out.println("bob");
 		if (!Bob.execute(null)) {
@@ -86,8 +78,8 @@ public class henshinChange {
 		//System.out.println(graph.getRoots().get(0));
 		resourceSet.saveEObject(graph.getRoots().get(0), "SpaceModel1_result.xmi");
 		System.out.println("\nSaved result file.");
-		//engine.Set_Return_File("model/hopingsecond.csv");
-		//engine.LoadAndWrite("model/spl_test.csv", "model/hopingsecond.csv");
-		//Bob.execute(null);
+		
+		engine.setPathForCSVFileOfOutputSPL("model/hopingsecond.csv");
+		Bob.execute(null);
 	}
 }
