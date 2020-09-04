@@ -1,0 +1,83 @@
+changes Engine.java:
+added loadInputSPLFileForLiftedRule(String LoadPath)
+	This method set SPL file path for the lifted rule and then load the relevant information
+	
+added SetPathForCSVFileOutputSPL(String Path)
+	This method set the CSV file path for the output SPL
+
+Changes in EngineImpl.java:
+
+	Members added:
+		Satisfiable -- if checkIfSatisfiable returns this, the presence condition is satisfiable
+		Presence_Conjunction --  LogicNG's symbol for conjunction
+		Presence_Negation -- LogicNG's symbol for negation
+		Original_PC -- map indicating the original nodes and their presence conditions
+		New_PC -- map indicating the new nodes and their presence conditions
+		LINE_DELIMITER -- line delimiter
+		CSV_DELIMITER -- CSV delimiter
+		VAR_DECL_KEYWORD -- keyword for the variables declarations
+		FEATURE_MODEL_DECL_KEYWORD -- keyword for the feature model declaration
+		FEATURE_VAR_DELIMITER -- delimiter for the feature variables
+		New_Model_File -- output feature model file
+		Original_Model_File -- input feature model file	
+		Features_Variables -- list of the model's variables
+		feature_model -- feature model constraint
+
+
+	added lines 957 to 972 and line 1004 to 1006 in createChanges
+		line 960 to 966 check if the rule is a lifted rule. If it is lifted, it gets Phi Apply and Phi Delete.
+		 	and, if not, it set Phi Apply to "true".
+		lines 967 to 972 simplifies Phi Apply and Phi Delete and, if Phi Apply is satisfiable, apply the lifted rule.
+		Lines 1004 to 1006 export the new feature model to the desired file. If the file doesn't exist, it is created.
+
+
+	Extracted method multi_Rules_recursively from Henshin's code. No changes were made.
+	Extracted method attributeChanges from Henshin's code. No changes were made.
+	Extracted method edge_Index_Change from Henshin's code. No changes were made.
+	Extracted method createEdges from Henshin's code. No changes were made.
+	Extracted method deleteEdges from Henshin's code. No changes were made.
+	
+	Extracted method edge_Index_Change from Henshin's code and added the lines 1100 to 1103.
+		If the rule is lifted and the preserved object wasn't already inspected, it is added to New_PC.
+
+	Extracted method deleteObjects from Henshin's code and added the lines 1111 to 1116 as well as the arguments P_Apply and P_Delete
+		If the rule is lifted and the deleted object wasn't already in New_PC, it is added in New_PC with its new presence condition.
+		The arguments P_Apply and P_Delete are used to calculate the new presence condition.
+		If the rule isn't lifted, the node is deleted.
+
+
+	Extracted method createObject from Henshin's code and added the lines 1142 to 1144 as well as the arguments P_Apply and Lift(indicating if the rule is lifted)
+		lines 1142 to 1144 check if the object is already in New_PC and, if not, adds it with it new presence condition.
+
+	
+	Extracted method setParam from Henshin's code. No changes were made.
+	
+	Added method checkIfSatisfiable.
+		This method check if the presence condition given in argument can be satisfied.
+
+	Added method getPhiDelete
+		This method return Phi delete
+
+	Added method getPhiAdd
+		This method return Phi add
+
+	Added method getPhi_Apply
+		This method returns Phi apply
+	
+	Added method getPresenceConditionOfNode
+		This method returns the presence condition of the node given in argument
+
+	Added method simplifyPresenceCondition
+		This method simplifies the presence condition and convert it to conjunctive normal form
+
+	Added method loadMetaModelData
+		This method load the meta-model's data in Original_PC
+
+	Added method loadInputFileForLiftedRule
+		This method set the SPL file path and calls loadMetaModelData
+
+	Added method setPathForCSVFileOfOutputSPL
+		This method sets the CSV file path for the output SPL
+	
+	Added method exportOutputSPLToCSVFile
+		This method creates the export file and write the relevant information
